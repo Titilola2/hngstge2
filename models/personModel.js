@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const personSchema = new mongoose.Schema({
-    username: String,
+    id: Number,
+    name: String,
     hobby: String
-})
+});
 
 const Person = mongoose.model('Person', personSchema);
 
