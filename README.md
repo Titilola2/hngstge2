@@ -14,8 +14,8 @@ Before you begin, ensure you have met the following requirements:
 
 [Live Link](https://hngx-task-two-backend-production-af7a.up.railway.app/api)
 ## Setup
-1. Clone the repository to your local machine by running the command => git clone https://github.com/hokageCodes/hngx-task-two-backend
-2. cd hngx-task-two-backend
+1. Clone the repository to your local machine by running the command => git clone https://github.com/Titilola2/hngstge2/
+2. cd hngstge2
 3. yarn or npm  install
 4. PORT=3000 and DB_URI=your_mongodb_connection
 
