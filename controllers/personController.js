@@ -12,7 +12,6 @@ exports.createPerson = async (req, res) => {
     const newPerson = new Person({
       id: newId,
       name: req.body.name,
-      hobby: req.body.hobby,
     });
 
     const savedPerson = await newPerson.save();
@@ -21,7 +20,6 @@ exports.createPerson = async (req, res) => {
     const formattedPerson = {
       id: savedPerson.id,
       name: savedPerson.name,
-      hobby: savedPerson.hobby,
     };
 
     res.status(201).json(formattedPerson);
@@ -43,7 +41,6 @@ exports.getPersonById = async (req, res) => {
     const formattedPerson = {
       id: person.id,
       name: person.name,
-      hobby: person.hobby,
     };
 
     res.json(formattedPerson);
@@ -70,7 +67,6 @@ exports.getPersonByName = async (req, res) => {
     const formattedPerson = {
       id: person.id,
       name: person.name,
-      hobby: person.hobby,
     };
 
     res.json(formattedPerson);
@@ -99,7 +95,6 @@ exports.updatePerson = async (req, res) => {
     const formattedPerson = {
       id: updatedPerson.id,
       name: updatedPerson.name,
-      hobby: updatedPerson.hobby,
     };
 
     res.json(formattedPerson);

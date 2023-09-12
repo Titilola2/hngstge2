@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const personSchema = new mongoose.Schema({
     id: Number,
     name: String,
-    hobby: String
 });
 
 const Person = mongoose.model('Person', personSchema);
