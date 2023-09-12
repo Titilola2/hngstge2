@@ -8,7 +8,7 @@ const personRoutes = express.Router();
 personRoutes.post('/', personController.createPerson);
 
 // Fetch details of person by ID
-personRoutes.get('/:user_id', personController.getPersonById);
+personRoutes.get('/:id', personController.getPersonById);
 
 // Fetch details of person by name
 personRoutes.get('/', [
@@ -16,9 +16,9 @@ personRoutes.get('/', [
 ], personController.getPersonByName);
 
 // Update details of an existing person by ID
-personRoutes.put('/:user_id', personController.updatePerson);
+personRoutes.put('/:id', personController.updatePerson);
 
 // Remove a person by ID
-personRoutes.delete('/:user_id', personController.deletePerson);
+personRoutes.delete('/:id', personController.deletePerson);
 
 module.exports = personRoutes;
