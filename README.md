@@ -28,7 +28,7 @@ Before you begin, ensure you have met the following requirements:
 - Response: Details of the newly created person, including the custom id.
 
 ### Fetch a Person by ID (GET)
-- Endpoint: /api/{id} (Replace {id} with the ID of the person you want to retrieve.)
+- Endpoint: /api/{user_id} (Replace {user_id} with the ID of the person you want to retrieve.)
 - Method: GET
 - Response: Details of the person with the specified ID, excluding "__v" and default "_id."
 
@@ -37,15 +37,17 @@ Before you begin, ensure you have met the following requirements:
 - Details of the person with the specified name.
 
 ### Update a Person by ID (PUT)
-- Endpoint: /api/{id} (Replace {id} with the ID of the person you want to update.)
+- Endpoint: /api/{user_id} (Replace {user_id} with the ID of the person you want to update.)
 - Request Body: JSON object with the updated name and hobby fields. e.g { "name": "Updated Name", "hobby": "Updated Hobby" }
 - Response: Updated details of the person with the specified ID.
 
 ### Delete a Person by ID (DELETE)
-- Endpoint: /api/{id} (Replace {id} with the ID of the person you want to delete.)
+- Endpoint: /api/{user_id} (Replace {user_id} with the ID of the person you want to delete.)
 - Method: DELETE
 - Response: A message indicating that the person was deleted successfully.
 
 Also there are error handling cases like trying to get or delete a non exisiting user, among other checks.
 
-
+## Troubleshooting 
+- If you encounter any issues, check the console for error messages. Ensure MongoDB is running and the connection URI in the .env file is correct.
+- Make sure you have installed all the dependencies using "npm or yarn install.
