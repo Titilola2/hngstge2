@@ -19,7 +19,7 @@ exports.createPerson = async (req, res) => {
 
     // Removing the "_id" and "__v" fields from the response
     const formattedPerson = {
-      id: savedPerson.user_id,
+      id: savedPerson.id,
       name: savedPerson.name,
       hobby: savedPerson.hobby,
     };
@@ -34,7 +34,7 @@ exports.createPerson = async (req, res) => {
 // Fetch details of person by ID
 exports.getPersonById = async (req, res) => {
   try {
-    const person = await Person.findOne({ id: req.params.user_id });
+    const person = await Person.findOne({ id: req.params.id });
     if (!person) {
       return res.status(404).json({ error: 'Person not found' });
     }
@@ -68,7 +68,7 @@ exports.getPersonByName = async (req, res) => {
 
     // Removing the "_id" and "__v" fields from the response
     const formattedPerson = {
-      id: person.user_id,
+      id: person.id,
       name: person.name,
       hobby: person.hobby,
     };
@@ -83,7 +83,7 @@ exports.getPersonByName = async (req, res) => {
 exports.updatePerson = async (req, res) => {
   try {
     const updatedPerson = await Person.findOneAndUpdate(
-      { id: req.params.user_id },
+      { id: req.params.id },
       req.body,
       {
         new: true,
@@ -97,7 +97,7 @@ exports.updatePerson = async (req, res) => {
 
     // Removing the "__v" field from the response
     const formattedPerson = {
-      id: updatedPerson.user_id,
+      id: updatedPerson.id,
       name: updatedPerson.name,
       hobby: updatedPerson.hobby,
     };
@@ -111,7 +111,7 @@ exports.updatePerson = async (req, res) => {
 // Remove a person by ID
 exports.deletePerson = async (req, res) => {
   try {
-    const deletedPerson = await Person.findOneAndDelete({ id: req.params.user_id });
+    const deletedPerson = await Person.findOneAndDelete({ id: req.params.id });
     if (!deletedPerson) {
       return res.status(404).json({ error: 'Person not found' });
     }
