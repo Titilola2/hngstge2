@@ -4,9 +4,11 @@ const Person = require('../models/personModel');
 // Create a new person
 exports.createPerson = async (req, res) => {
   try {
+    // Count the existing documents to calculate the next ID
     const count = await Person.countDocuments();
     const newId = count + 1;
 
+    // Create a new person with the custom integer ID
     const newPerson = new Person({
       id: newId,
       name: req.body.name,
@@ -15,6 +17,7 @@ exports.createPerson = async (req, res) => {
 
     const savedPerson = await newPerson.save();
 
+    // Removing the "_id" and "__v" fields from the response
     const formattedPerson = {
       id: savedPerson.id,
       name: savedPerson.name,
@@ -36,6 +39,7 @@ exports.getPersonById = async (req, res) => {
       return res.status(404).json({ error: 'Person not found' });
     }
 
+    // Customizing the response format
     const formattedPerson = {
       id: person.id,
       name: person.name,
@@ -44,7 +48,6 @@ exports.getPersonById = async (req, res) => {
 
     res.json(formattedPerson);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
@@ -63,6 +66,7 @@ exports.getPersonByName = async (req, res) => {
       return res.status(404).json({ error: 'Person not found' });
     }
 
+    // Removing the "_id" and "__v" fields from the response
     const formattedPerson = {
       id: person.id,
       name: person.name,
@@ -71,7 +75,6 @@ exports.getPersonByName = async (req, res) => {
 
     res.json(formattedPerson);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
@@ -92,6 +95,7 @@ exports.updatePerson = async (req, res) => {
       return res.status(404).json({ error: 'Person not found' });
     }
 
+    // Removing the "__v" field from the response
     const formattedPerson = {
       id: updatedPerson.id,
       name: updatedPerson.name,
@@ -100,7 +104,6 @@ exports.updatePerson = async (req, res) => {
 
     res.json(formattedPerson);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
@@ -114,7 +117,6 @@ exports.deletePerson = async (req, res) => {
     }
     res.json({ message: 'Person deleted successfully' });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
