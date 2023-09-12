@@ -10,7 +10,7 @@ Before you begin, ensure you have met the following requirements:
 
 - **Postman:** You can use Postman to test the API endpoints. You can download Postman from [postman.com](https://www.postman.com/).
 
-[Live Link]('https://hngx-task-two-backend-production-af7a.up.railway.app/api')
+[Live Link](https://hngx-task-two-backend-production-af7a.up.railway.app/api)
 ## Setup
 1. Clone the repository to your local machine by running the command => git clone https://github.com/hokageCodes/hngx-task-two-backend
 2. cd hngx-task-two-backend
