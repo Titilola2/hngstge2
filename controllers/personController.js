@@ -41,7 +41,7 @@ exports.getPersonById = async (req, res) => {
 
     // Customizing the response format
     const formattedPerson = {
-      id: person.user_id,
+      id: person.id,
       name: person.name,
       hobby: person.hobby,
     };
